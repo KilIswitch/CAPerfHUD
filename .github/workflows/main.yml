@@ -1,0 +1,12 @@
+export THEOS=/path/to/theos
+
+# Build ipa for AppSync/TrollStore
+make -C CAPerfHUDApp package PACKAGE_FORMAT=ipa
+
+# Before building for the opposite deb package scheme, make sure to add "clean" before "package"
+
+# Build rootful deb for CCSupport
+make -C CAPerfHUDModule package
+
+# Build rootless deb for CCSupport
+make -C CAPerfHUDModule package THEOS_PACKAGE_SCHEME=rootless
